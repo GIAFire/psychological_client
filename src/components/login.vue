@@ -11,7 +11,7 @@
         </div>
         <div class="chk">
           <el-button type="primary" @click="btn">学生登录</el-button>
-          <el-button type="primary" @click="btn">管理员登录</el-button>
+          <el-button type="primary" @click="adminBtn">管理员登录</el-button>
         </div>
     </div>
   
@@ -21,9 +21,12 @@
 <script>
 import router from '../router/index'
 import{toLogin} from '@/apis/loginAPI'
+import{toAdminLogin} from '@/apis/adminLoginAPI'
 import{userStore} from '@/utils/pinia'
+import userManagement from '@/views/userManagement.vue';
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
+  components:{userManagement},
   
   setup(){
     const phone= ref('');
@@ -42,7 +45,22 @@ export default defineComponent({
         }
       })
     }
-    return {btn,phone,password} 
+
+    const adminBtn = () =>{
+      const res = toAdminLogin(phone.value,password.value)
+      res.then(respone => {
+        console.log(respone.data)
+        if(respone.data.code==='0000'){
+          const pinia = userStore();
+          pinia.setUser(respone.data.data);
+          alert('登录成功')
+          router.push({ path:'/'})
+        }else{
+          alert('登录失败')
+        }
+      })
+    }
+    return {adminBtn,btn,phone,password} 
    
   }
 })

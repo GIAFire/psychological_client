@@ -15,6 +15,7 @@ const messages = ref([
 ])
 const handleSendMessage = (message) => {
   console.log(message);
+  messageInputRef.value = null
   messages.value.push({ sender: 'user', content: message });
 
   var params = {

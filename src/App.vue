@@ -1,7 +1,8 @@
 <template>
   
   <div id="app">
-    <Navbar></Navbar>
+    <Navbar v-if="isShowAdmin"></Navbar>
+    <userManagement v-else></userManagement>
     <router-view></router-view>
   </div>
 </template>
@@ -9,14 +10,16 @@
 <script>
 import { defineComponent } from 'vue';
 import index from './views/index.vue';
+import userManagement from './views/userManagement.vue';
 import Navbar from './components/Navbar.vue';
 
-import {reactive} from 'vue'
+import {reactive,ref} from 'vue'
 import{userStore} from '@/utils/pinia'
 
 export default {
   name : 'App',
   setup(){
+    var isShowAdmin = ref(true);
     let images = [
       'https://xlingtong.oss-cn-beijing.aliyuncs.com/uploads/images/20240228/abac6ae2c2f932b655eb7a9b781d5db4.png',
       'https://xlingtong.oss-cn-beijing.aliyuncs.com/uploads/images/20220927/2ab1a2613995844b51075e4e835a6057.jpg',
@@ -26,12 +29,17 @@ export default {
       index : 0
     })
 
-    return {images,currentIndex}
+    return {images,currentIndex,isShowAdmin}
   },
   mounted() {
     if (window.localStorage.getItem("userInfo")) {
       const user = userStore()
       user.getLocalStorage(window.localStorage.getItem("userInfo"))
+      console.log(user.getUser.name);
+      if (user.getUser.name === 'admin') {
+        this.isShowAdmin = false;
+        console.log(this.isShowAdmin);
+      }
     }
     setInterval(() => {
       this.currentIndex.index = (this.currentIndex.index + 1) % this.images.length;
@@ -42,7 +50,7 @@ export default {
   // beforeUnmount() {
   //   window.removeEventListener('beforeunload', this.clearLocalStorage);
   // },
-  components : {defineComponent,Navbar,index},
+  components : {defineComponent,Navbar,index,userManagement},
   // methods: {
   //   clearLocalStorage() {
   //     localStorage.clear();

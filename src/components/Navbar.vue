@@ -15,7 +15,9 @@
     </div>
     <div class="nav" >
     <router-link to="/login-register" class="none"><h1>登录\注册</h1></router-link>
-      
+    </div>
+    <div class="nav" >
+    <router-link to="/userManagement " class="none"><h1>用户管理</h1></router-link>
     </div>
   </div>
 </template>

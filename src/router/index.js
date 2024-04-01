@@ -5,6 +5,7 @@ import register from '../components/register.vue'
 import login from '../components/login.vue'
 import index from '../views/index.vue'
 import chat from '../views/chat.vue'
+import userManagement from '../views/userManagement.vue'
 import{userStore} from '@/utils/pinia'
 
 
@@ -25,6 +26,11 @@ const router = createRouter({
       name: 'chat',
       component: chat,
       meta:{requiresAuth:true}
+    },
+    {
+      path: '/userManagement',
+      name: 'userManagement',
+      component: userManagement
     },
     {
       path: '/login-register',
