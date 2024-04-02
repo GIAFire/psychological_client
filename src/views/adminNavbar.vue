@@ -10,10 +10,10 @@
         <router-link to="/userManagement" class="none"><h1>用户管理</h1></router-link>
       </div>
       <div class="nav" >
-        <router-link to="/chat" class="none"><h1>视频管理</h1></router-link>
+        <router-link to="/video" class="none"><h1>视频管理</h1></router-link>
       </div>
       <div class="nav" >
-        <router-link to="/chat" class="none"><h1>数据统计</h1></router-link>
+        <router-link to="/data" class="none"><h1>数据统计</h1></router-link>
       </div>
     </div>
   </template>

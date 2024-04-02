@@ -45,6 +45,10 @@ server: {
     '/adminLogin':{
       target: 'http://localhost:3000',
       changeOrigin: true
+    },
+    '/userList':{
+      target: 'http://localhost:3000',
+      changeOrigin: true
     }
   }
   

@@ -6,6 +6,8 @@ import login from '../components/login.vue'
 import index from '../views/index.vue'
 import chat from '../views/chat.vue'
 import userManagement from '../views/userManagement.vue'
+import video from '../views/video.vue'
+import data from '../views/data.vue'
 import{userStore} from '@/utils/pinia'
 
 
@@ -22,6 +24,16 @@ const router = createRouter({
       component: userManagement
     },
     {
+      path: '/video',
+      name: 'video',
+      component: video
+    },
+    {
+      path: '/data',
+      name: 'data',
+      component: data
+    },
+    {
       path: '/index',
       name: 'index',
       component: index
@@ -31,11 +43,6 @@ const router = createRouter({
       name: 'chat',
       component: chat,
       meta:{requiresAuth:true}
-    },
-    {
-      path: '/userManagement',
-      name: 'userManagement',
-      component: userManagement
     },
     {
       path: '/login-register',

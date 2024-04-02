@@ -1,8 +1,56 @@
 <template>
-    <h1>用户管理</h1>
+    <el-table :data="tableData" style="width: 100% " >
+        <el-table-column prop="id" label="id" width="230" />
+        <el-table-column prop="username" label="username" width="230" />
+        <el-table-column prop="phone" label="phone" width="230" />
+        <el-table-column prop="school" label="school" width="230" />
+        <el-table-column prop="stuNum" label="stuNum" width="230" />
+        <el-table-column prop="caozuo" label="操作" width="230"  >
+            <el-button type="primary" round>修改</el-button>
+            <el-button type="danger" round>删除</el-button>
+        </el-table-column>
+
+        
+    </el-table>
+    
 </template>
-<script>
+<script >
+import { ref } from 'vue'
+import { ElTable, ElTableColumn } from 'element-plus'
+import { defineComponent } from 'vue'
+import{getUserList} from '@/apis/adminUserList'
+import {
+  Check,
+  Delete,
+  Edit,
+  Message,
+  Search,
+  Star,
+} from '@element-plus/icons-vue'
+
+export default defineComponent({
+    components: {
+        ElTable,
+        ElTableColumn,Delete
+    },
+    setup() {
+        const tableData = ref([])
+        const res = getUserList()
+        console.log(res.then((res) => {
+            console.log(res.data.data);
+            tableData.value = res.data.data
+        }));
+        return {
+            tableData,
+        }
+    }
+})
 
 </script>
 <style>
+* {
+    padding: 0px;
+    margin: 0px;
+    color: #000000 !important;
+}
 </style>

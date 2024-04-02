@@ -32,8 +32,6 @@ export default {
     return {images,currentIndex,isShowAdmin}
   },
   mounted() {
-    this.isShowAdmin = true;
-    console.log(this.isShowAdmin);
     if (window.localStorage.getItem("userInfo")) {
       const user = userStore()
       user.getLocalStorage(window.localStorage.getItem("userInfo"))
@@ -69,6 +67,18 @@ export default {
   padding: 0;
   
 }
+.component {
+  background-image: url('../assets/tu1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* .outer_box {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../assets/tu1.jpg');
+  background-size: 100% 100%;
+} */
 
 #app {
   width: 100%;
@@ -103,7 +113,7 @@ export default {
 .interest {
     width: 1206px;
     height: 60px;
-    background: #edf7ee;
+    background: #21ac2f;
     border-radius: 2px;
     margin: 40px auto 0;
     line-height: 60px;
