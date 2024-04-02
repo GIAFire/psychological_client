@@ -17,6 +17,11 @@ const router = createRouter({
       redirect: '/index'
     },
     {
+      path: '/userManagement',
+      name: 'userManagement',
+      component: userManagement
+    },
+    {
       path: '/index',
       name: 'index',
       component: index

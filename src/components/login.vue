@@ -32,33 +32,43 @@ export default defineComponent({
     const phone= ref('');
     const password = ref('');
     const btn = () =>{
-      const res = toLogin(phone.value,password.value)
-      res.then(respone => {
-        console.log(respone.data)
-        if(respone.data.code==='0000'){
-          const pinia = userStore();
-          pinia.setUser(respone.data.data);
-          alert('登录成功')
-          router.push({ path:'/'})
-        }else{
-          alert('登录失败')
-        }
-      })
+
+      const pinia = userStore();
+      pinia.setUser({name:'zs',token:"123"});
+      alert('登录成功')
+      router.push({ path:'/'})
+      // const res = toLogin(phone.value,password.value)
+      // res.then(respone => {
+      //   console.log(respone.data)
+      //   if(respone.data.code==='0000'){
+      //     const pinia = userStore();
+      //     pinia.setUser(respone.data.data);
+      //     alert('登录成功')
+      //     router.push({ path:'/'})
+      //   }else{
+      //     alert('登录失败')
+      //   }
+      // })
     }
 
     const adminBtn = () =>{
-      const res = toAdminLogin(phone.value,password.value)
-      res.then(respone => {
-        console.log(respone.data)
-        if(respone.data.code==='0000'){
-          const pinia = userStore();
-          pinia.setUser(respone.data.data);
-          alert('登录成功')
-          router.push({ path:'/'})
-        }else{
-          alert('登录失败')
-        }
-      })
+
+      const pinia = userStore();
+      pinia.setUser({name:'admin',token:"123"});
+      alert('登录成功')
+      router.push({ path:'/'})
+      // const res = toAdminLogin(phone.value,password.value)
+      // res.then(respone => {
+      //   console.log(respone.data)
+      //   if(respone.data.code==='0000'){
+      //     const pinia = userStore();
+      //     pinia.setUser(respone.data.data);
+      //     alert('登录成功')
+      //     router.push({ path:'/'})
+      //   }else{
+      //     alert('登录失败')
+      //   }
+      // })
     }
     return {adminBtn,btn,phone,password} 
    

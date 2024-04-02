@@ -2,7 +2,7 @@
   
   <div id="app">
     <Navbar v-if="isShowAdmin"></Navbar>
-    <userManagement v-else></userManagement>
+    <adminNavbar v-else></adminNavbar>
     <router-view></router-view>
   </div>
 </template>
@@ -10,7 +10,7 @@
 <script>
 import { defineComponent } from 'vue';
 import index from './views/index.vue';
-import userManagement from './views/userManagement.vue';
+import adminNavbar from './views/adminNavbar.vue';
 import Navbar from './components/Navbar.vue';
 
 import {reactive,ref} from 'vue'
@@ -32,6 +32,8 @@ export default {
     return {images,currentIndex,isShowAdmin}
   },
   mounted() {
+    this.isShowAdmin = true;
+    console.log(this.isShowAdmin);
     if (window.localStorage.getItem("userInfo")) {
       const user = userStore()
       user.getLocalStorage(window.localStorage.getItem("userInfo"))
@@ -50,7 +52,7 @@ export default {
   // beforeUnmount() {
   //   window.removeEventListener('beforeunload', this.clearLocalStorage);
   // },
-  components : {defineComponent,Navbar,index,userManagement},
+  components : {defineComponent,Navbar,index,adminNavbar},
   // methods: {
   //   clearLocalStorage() {
   //     localStorage.clear();

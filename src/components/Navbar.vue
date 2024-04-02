@@ -1,23 +1,19 @@
 <template>
-  <div class="navigation">
+  <div class="navigation1">
     <div class="navig">
       <img src="../assets/logo.b8150b68.png" alt="">
     </div>
     <div class="nav" >
       <router-link to="/index" class="none"><h1>首页</h1></router-link>
-      
     </div>
     <div class="nav" >
       <router-link to="/chat" class="none"><h1>智能AI聊天辅导</h1></router-link>
     </div>
     <div class="nav" >
-      <h1>心理微视频</h1>
+      <router-link to="/" class="none"><h1>心理微视频</h1></router-link>
     </div>
     <div class="nav" >
     <router-link to="/login-register" class="none"><h1>登录\注册</h1></router-link>
-    </div>
-    <div class="nav" >
-    <router-link to="/userManagement " class="none"><h1>用户管理</h1></router-link>
     </div>
   </div>
 </template>
@@ -37,7 +33,7 @@ export default {
 .none{
   text-decoration: none;
 }
-.navigation{
+.navigation1{
   /* border: 2px solid red; */
   width: 100%;
   height: 100px;
