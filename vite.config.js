@@ -49,6 +49,23 @@ server: {
     '/userList':{
       target: 'http://localhost:3000',
       changeOrigin: true
+    },
+    '/uploudVideo':{
+      target: 'http://localhost:3000',
+      changeOrigin: true
+    },
+    '/uploudImg':{
+      target: 'http://localhost:3000',
+      changeOrigin: true
+    }
+    ,
+    '/videoList':{
+      target: 'http://localhost:3000',
+      changeOrigin: true
+    },
+    '/addVideo':{
+      target: 'http://localhost:3000',
+      changeOrigin: true
     }
   }
   
