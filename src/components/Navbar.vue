@@ -38,7 +38,8 @@ export default {
     if (window.localStorage.getItem("userInfo")) {
       const user = userStore()
       user.getLocalStorage(window.localStorage.getItem("userInfo"))
-      if (user.getUser.name) {
+      console.log(user.getUser.username);
+      if (user.getUser.username) {
         this.isLogin = true;
       }
     }

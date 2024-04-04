@@ -37,8 +37,8 @@ export default defineComponent({
         const tableData = ref([])
         const res = getUserList()
         res.then((res) => {
-            console.log(res.data.data);
-            tableData.value = res.data.data
+            console.log(res.data);
+            tableData.value = res.data
         });
         const getTagStyle = (status) =>{
             return { '--el-tag-bg-color': status === 1 ? '#00800059' : '#ff000073' };
@@ -50,7 +50,7 @@ export default defineComponent({
             status = status === 1 ? 0 : 1
             const res = banUser(id,status)
             res.then((res) => {
-                if(res.data.code == "0000"){
+                if(res.code == "0000"){
                     alert(status = status === 1 ? "解封成功" : "封禁成功")
                     window.location.reload();
                 }

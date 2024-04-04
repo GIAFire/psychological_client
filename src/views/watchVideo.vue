@@ -1,18 +1,19 @@
 <template>
     <div v-if="isPlaying" class="btn">
-    <el-button type="primary" @click="stopVideo" class="back-button">返回视频列表</el-button>
+        <el-button type="primary" @click="stopVideo" class="back-button">返回视频列表</el-button>
     </div>
-            
+
     <div class="centered-container">
-    <video v-if="isPlaying" :src="currentVideoUrl" controls autoplay style="max-width: 880px;"></video>
-    <div v-else class="card-container">
-      <el-card @click="playVideo(item)" class="custom-card" v-for="item in data.value" :key="item.id" style="max-width: 240px;max-height: 250px;">
-        <img :src="item.image_url" style="width: 200px;height: 150px;" />
-        <el-divider />
-        <p class="text-center">{{ item.video_name }}</p>
-      </el-card>
+        <video v-if="isPlaying" :src="currentVideoUrl" controls autoplay style="max-width: 880px;"></video>
+        <div v-else class="card-container">
+            <el-card @click="playVideo(item)" class="custom-card" v-for="item in data.value" :key="item.id"
+                style="max-width: 240px;max-height: 250px;">
+                <img :src="item.image_url" style="width: 200px;height: 150px;" />
+                <el-divider />
+                <p class="text-center">{{ item.video_name }}</p>
+            </el-card>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -25,27 +26,27 @@ export default {
     setup() {
         var data = reactive([])
         const isPlaying = ref(false);
-    const currentVideoUrl = ref('');
+        const currentVideoUrl = ref('');
         getWatchVideoList().then(res => {
-            data.value = res.data.data
-            console.log(data.value);
+            data.value = res.data
+            console.log(res.data);
         })
         const playVideo = (item) => {
             isPlaying.value = true;
-      currentVideoUrl.value = item.video_url;
-      console.log('播放视频：', item.video_url);
+            currentVideoUrl.value = item.video_url;
+            console.log('播放视频：', item.video_url);
         };
         const stopVideo = () => {
-      isPlaying.value = false;
-      currentVideoUrl.value = '';
-    };
-        return { data, playVideo, isPlaying, currentVideoUrl,stopVideo  }
+            isPlaying.value = false;
+            currentVideoUrl.value = '';
+        };
+        return { data, playVideo, isPlaying, currentVideoUrl, stopVideo }
     }
 }
 </script>
 
 <style>
-.centered-container  {
+.centered-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -75,4 +76,5 @@ export default {
 
 .text-center {
     text-align: center;
-}</style>
+}
+</style>

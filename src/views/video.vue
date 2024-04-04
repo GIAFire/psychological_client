@@ -41,14 +41,14 @@ export default defineComponent({
 
         const res = getVideoList()
         res.then((res) => {
-            console.log(res.data.data);
-            tableData.value = res.data.data
+            console.log(res.data);
+            tableData.value = res.data
         });
 
         const deleteItem = (id) => {
             const res = delVideo(id)
             res.then((res) => {
-                if(res.data.code == "0000"){
+                if(res.code == "0000"){
                     alert("删除成功!")
                     window.location.reload();
                 }
