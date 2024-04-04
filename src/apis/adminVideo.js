@@ -22,4 +22,15 @@ const addVideo = (videoName,videoUrl,imageUrl,sort) =>{
     return obj;
 }
 
-export {getVideoList,addVideo}
+const delVideo = (id) =>{
+    const obj = instance({
+        method:'post',
+        url: '/delVideo',
+        data: {
+            id:id
+        }
+    });
+    return obj;
+}
+
+export {getVideoList,addVideo,delVideo}

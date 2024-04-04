@@ -15,11 +15,23 @@
       <div class="nav" >
         <router-link to="/data" class="none"><h1>数据统计</h1></router-link>
       </div>
+      <div class="nav" >
+        <a href="/" @click="logout()" class="none"><h1>退出登录</h1></a>
+      </div>
     </div>
   </template>
   
   <script>
   export default {
+    setup(){
+      const logout = () => {
+        localStorage.removeItem('userInfo')
+        window.location.href = '/'
+      }
+      return {
+        logout
+      }
+    }
   
   }
   </script>

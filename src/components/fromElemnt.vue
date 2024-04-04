@@ -56,8 +56,6 @@ const imgSuccess: UploadProps['onSuccess'] = (
     uploadFile
 ) => {
     ruleForm.imageUrl = response
-    console.log(ruleForm.imageUrl);
-
     imageUrl.value = URL.createObjectURL(uploadFile.raw!)
 }
 

@@ -66,6 +66,14 @@ server: {
     '/addVideo':{
       target: 'http://localhost:3000',
       changeOrigin: true
+    },
+    '/delVideo':{
+      target: 'http://localhost:3000',
+      changeOrigin: true
+    },
+    '/banUser':{
+      target: 'http://localhost:3000',
+      changeOrigin: true
     }
   }
   

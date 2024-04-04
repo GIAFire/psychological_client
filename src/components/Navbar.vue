@@ -10,16 +10,38 @@
       <router-link to="/chat" class="none"><h1>智能AI聊天辅导</h1></router-link>
     </div>
     <div class="nav" >
-      <router-link to="/" class="none"><h1>心理微视频</h1></router-link>
+      <router-link to="/watchVideo" class="none"><h1>心理微视频</h1></router-link>
     </div>
-    <div class="nav" >
+    <div class="nav" v-if="!isLogin">
     <router-link to="/login-register" class="none"><h1>登录\注册</h1></router-link>
+    </div>
+    <div class="nav" v-else>
+      <a href="/" @click="logout()" class="none"><h1>退出登录</h1></a>
     </div>
   </div>
 </template>
 
 <script>
+import {ref} from 'vue'
+import{userStore} from '@/utils/pinia'
 export default {
+  setup(){
+    var isLogin = ref(false);
+    const logout = () => {
+        localStorage.removeItem('userInfo')
+        window.location.href = '/'
+      }
+    return {isLogin,logout}
+  },
+  mounted() {
+    if (window.localStorage.getItem("userInfo")) {
+      const user = userStore()
+      user.getLocalStorage(window.localStorage.getItem("userInfo"))
+      if (user.getUser.name) {
+        this.isLogin = true;
+      }
+    }
+  }
 
 }
 </script>

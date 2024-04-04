@@ -32,11 +32,11 @@ export default defineComponent({
     const phone= ref('');
     const password = ref('');
     const btn = () =>{
-
       const pinia = userStore();
       pinia.setUser({name:'zs',token:"123"});
       alert('登录成功')
-      router.push({ path:'/'})
+      window.location.reload();
+      window.location.href = '/'
       // const res = toLogin(phone.value,password.value)
       // res.then(respone => {
       //   console.log(respone.data)
@@ -56,7 +56,8 @@ export default defineComponent({
       const pinia = userStore();
       pinia.setUser({name:'admin',token:"123"});
       alert('登录成功')
-      router.push({ path:'/'})
+      window.location.reload();
+      window.location.href = '/'
       // const res = toAdminLogin(phone.value,password.value)
       // res.then(respone => {
       //   console.log(respone.data)

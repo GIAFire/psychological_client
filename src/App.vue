@@ -35,10 +35,8 @@ export default {
     if (window.localStorage.getItem("userInfo")) {
       const user = userStore()
       user.getLocalStorage(window.localStorage.getItem("userInfo"))
-      console.log(user.getUser.name);
       if (user.getUser.name === 'admin') {
         this.isShowAdmin = false;
-        console.log(this.isShowAdmin);
       }
     }
     setInterval(() => {

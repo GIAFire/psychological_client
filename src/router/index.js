@@ -8,6 +8,7 @@ import chat from '../views/chat.vue'
 import userManagement from '../views/userManagement.vue'
 import video from '../views/video.vue'
 import data from '../views/data.vue'
+import watchVideo from '../views/watchVideo.vue'
 import{userStore} from '@/utils/pinia'
 
 
@@ -37,6 +38,11 @@ const router = createRouter({
       path: '/index',
       name: 'index',
       component: index
+    },
+    {
+      path: '/watchVideo',
+      name: 'watchVideo',
+      component: watchVideo
     },
     {
       path: '/chat',
