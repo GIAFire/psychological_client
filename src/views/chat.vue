@@ -76,12 +76,15 @@ watch(messageInputRef, (newValue) => {
           <div class="message-content" v-for="message in messages" :key="message.id"
             :class="{ 'sent-by-user': message.sender === 'user', 'sent-by-bot': message.sender === 'AI' }">
             <div v-if="message.sender === 'user'" class="message-row sent-by-user">
-              <div class="message-avatar">
-                <img src="https://avatars.githubusercontent.com/u/43913675?v=4" alt="avatar" />
+              <div>
+                <el-avatar> 我 </el-avatar>
               </div>
-              <div class="message-text">{{ message.content }}</div>
+              <div class="message-text" style="margin-top: 10px">{{ message.content }}</div>
             </div>
             <div v-else class="message-row sent-by-bot">
+              <div>
+                <el-avatar> AI </el-avatar>
+              </div>
               <div class="message-text">{{ message.content }}</div>
             </div>
           </div>
@@ -191,6 +194,7 @@ watch(messageInputRef, (newValue) => {
   line-height: 1.5;
   color: #000;
   max-width: 100%;
+  margin-top: 10px;
   /* 让消息框自动换行 */
 }
 

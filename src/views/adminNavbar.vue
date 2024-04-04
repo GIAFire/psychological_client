@@ -2,6 +2,7 @@
     <div class="navigation">
       <div class="navig">
         <img src="../assets/logo.b8150b68.png" alt="">
+        <p>管理端</p>
       </div>
       <div class="nav" >
         <router-link to="/index" class="none"><h1>首页</h1></router-link>

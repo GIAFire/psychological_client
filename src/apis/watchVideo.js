@@ -3,7 +3,7 @@ import instance  from "@/utils/http"
 const getWatchVideoList = () =>{
     const obj = instance({
         method:'get',
-        url: '/watchVideoList'
+        url: '/videoList'
     });
     return obj;
 }
