@@ -82,7 +82,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
         if (valid) {
             const res = addVideo(ruleForm.videoName, ruleForm.videoUrl, ruleForm.imageUrl, ruleForm.sort)
             res.then(respone => {
-                if (respone.data.code === '0000') {
+                if (respone.code === '0000') {
                     alert('视频上传成功!')
                     window.location.reload();
                 } else {

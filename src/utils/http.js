@@ -13,6 +13,7 @@ instance.interceptors.request.use(
         // 在请求发送之前做一些处理，比如添加token等操作
         if (window.localStorage.getItem("userInfo")) {
             const pinia = userStore();
+            console.log(pinia.getUser.token);
             token = pinia.getUser.token
             config.headers.Authorization = `Bearer ${token}`;
         }
